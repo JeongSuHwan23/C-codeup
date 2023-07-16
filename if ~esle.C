@@ -123,7 +123,7 @@ int main(){
 }
 
 //code up 1207 윷놀이
-#include <Stdio.h>
+#include <stdio.h>
 int main(){
     int a, b, c, d, sum=5;
     scanf("%d %d %d %d", &a, &b, &c, &d); //윷의 상태를 입력받음
@@ -166,4 +166,66 @@ int main(){
     else if(m==4 || m==6 || m==9 || m==11) printf("30");
     else printf("31");
 
+}
+
+//code up 1216 
+#include <stdio.h>
+int main(){
+    int a, b, c;
+    scanf("%d %d %d", &a, &b, &c);
+    if(a>b-c) printf("do not advertise");
+    else if(a<b-c) printf("advertise");
+    else printf("does not matter");    
+}
+
+//code up 1218 삼각형 판단
+#include <stdio.h>
+int main(){
+    int a, b, c;
+    scanf("%d %d %d", &a, &b, &c);
+    if(a+b>c){
+        if(a==b && b==c) printf("정삼각형");
+        else if(a==b || b==c || a==c) printf("이등변삼각형");
+        else if((a*a)+(b*b)==c*c) printf("직각삼각형");
+        else printf("삼각형");
+    }
+    else printf("삼각형아님");
+}
+
+//code up 1222 축구의 신 2
+#include <stdio.h>
+int main(){
+    int time, score1, score2;
+    scanf("%d %d %d", &time, &score1, &score2);
+    for(int i=1; ; i++){
+        if(time + (5*i) < 90) score1++;
+        else break;
+    }
+    if(score1+1<score2) printf("lose");
+    else if(score1+1>score2) printf("win");
+    else printf("same");
+}
+
+//code up 1224 분수 크기 비교
+#include <stdio.h>
+int main(){
+    float a, b, c, d;
+    scanf("%d %d %d %d", &a, &b, &c, &d);
+    if(a/b>c/d) printf(">");
+    else if(a/b<c/d) printf("<");
+    else printf("=");
+}
+
+//code up 1226 이번 주 로또
+#include <stdio.h>
+int main(){
+    int sn[10], bn, ln[10];
+    for(int i=0; i<6; i++){
+        scanf("%d", &sn[i]);
+    }
+    scanf("%d", &bn);
+    for(int i=0; i<6; i++){
+        scanf("%d", &ln[i]);
+    }
+    
 }
