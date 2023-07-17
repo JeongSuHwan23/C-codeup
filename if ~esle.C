@@ -160,22 +160,22 @@ int main(){
     int y, m;
     scanf("%d %d", &y, &m);
     if(m==2){
-        if(y%400==0 || (y%4==0 && y%100!=0)) printf("29");
+        if(y%400==0 || (y%4==0 && y%100!=0)) printf("29"); //윤달인 조건
         else printf("28");
     }
-    else if(m==4 || m==6 || m==9 || m==11) printf("30");
-    else printf("31");
+    else if(m==4 || m==6 || m==9 || m==11) printf("30"); //마지막 날이 30일인 달
+    else printf("31"); //마지막 날이 31일인 달
 
 }
 
-//code up 1216 
+//code up 1216 컨설팅 회사
 #include <stdio.h>
 int main(){
     int a, b, c;
-    scanf("%d %d %d", &a, &b, &c);
-    if(a>b-c) printf("do not advertise");
-    else if(a<b-c) printf("advertise");
-    else printf("does not matter");    
+    scanf("%d %d %d", &a, &b, &c); //a=홍보를 하지 않을 경우 수입, b=홍보를 할 경우의 수입, c=홍보비용
+    if(a>b-c) printf("do not advertise"); //홍보를 하지 않는 경우가 유리한 경우
+    else if(a<b-c) printf("advertise"); //홍보를 하는 경우가 유리한 경우
+    else printf("does not matter"); //별 관계가 없는 경우
 }
 
 //code up 1218 삼각형 판단
@@ -184,7 +184,7 @@ int main(){
     int a, b, c;
     scanf("%d %d %d", &a, &b, &c);
     if(a+b>c){
-        if(a==b && b==c) printf("정삼각형");
+        if(a==b && b==c) printf("정삼각형"); 
         else if(a==b || b==c || a==c) printf("이등변삼각형");
         else if((a*a)+(b*b)==c*c) printf("직각삼각형");
         else printf("삼각형");
@@ -198,10 +198,10 @@ int main(){
     int time, score1, score2;
     scanf("%d %d %d", &time, &score1, &score2);
     for(int i=1; ; i++){
-        if(time + (5*i) < 90) score1++;
+        if(time + (5*i) < 90) score1++; //투입하고 5분이 지나고부터 넣는 골의 갯수
         else break;
     }
-    if(score1+1<score2) printf("lose");
+    if(score1+1<score2) printf("lose"); //투입되고 곧바로 넣는 골을 계산하기 위해 +1을 한다
     else if(score1+1>score2) printf("win");
     else printf("same");
 }
@@ -219,7 +219,7 @@ int main(){
 //code up 1226 이번 주 로또
 #include <stdio.h>
 int main(){
-    int sn[10], bn, ln[10];
+    int sn[10], bn, ln[10], same=0, bsame=0; //sn=로또 당첨번호, bn=보너스 번호, ln=가지고 있는 로또 번호, same=로또 번호가 일치한 갯수, bsame=보너스 번호가 일치한 갯수
     for(int i=0; i<6; i++){
         scanf("%d", &sn[i]);
     }
@@ -227,5 +227,58 @@ int main(){
     for(int i=0; i<6; i++){
         scanf("%d", &ln[i]);
     }
-    
+    for(int i=0; i<6; i++){
+        for(int j=0; j<6; j++){
+            if(sn[i]==ln[j]){
+                same++; //번호가 일치하면 same에 +1
+                break;
+            }
+        }
+    }
+    for(int i=0; i<6; i++){
+        if(ln[i]==bn) bsame++; //보너스 점수가 bsame에 일치하면 +1
+    }
+    if(same==6) printf("1"); 
+    else if(same==5 && bsame==1) printf("2");
+    else if(same==5) printf("3");
+    else if(same==4) printf("4");
+    else if(same==3) printf("5");
+    else printf("0");
+}
+
+//code up 1228 비만도 측정1
+#include <stdio.h>
+int main(){
+    double h, w, sw=0, o=0; //float는 오류남 
+    scanf("%lf %lf", &h, &w);
+    sw = (h-100)*0.9;
+    o = (w-sw) * 100/sw;
+    if(o>20) printf("비만");
+    else if(o>10) printf("과체중");
+    else printf("정상");
+}
+
+//code up 1229 비만도 측정2
+#include <stdio.h>
+int main(){
+    double h, w, sw=0, o=0;
+    scanf("%lf %lf", &h, &w);
+    if(h<150) sw = h-100;
+    else if(h<160) sw = (h-150)/2+50;
+    else sw = (h-100) * 0.9;
+    o = (w-sw) * 100/sw;
+    if(o>20) printf("비만");
+    else if(o>10) printf("과체중");
+    else printf("정상");
+}
+
+//code up 1230 터널 통과
+#include <stdio.h>
+int main(){
+    int a, b, c;
+    scanf("%d %d %d", &a, &b, &c);
+    if(a<=170) printf("CRASH %d", a);
+    else if(b<=170) printf("CRASH %d", b);
+    else if(c<=170) printf("CRASH %d", c);
+    else printf("PASS");
 }
