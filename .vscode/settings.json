@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "if ~esle.C": "cpp"
+        "if ~esle.C": "cpp",
+        "if ~else.C": "cpp",
+        "for, while.C": "cpp"
     }
 }
