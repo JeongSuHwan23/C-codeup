@@ -74,3 +74,154 @@ int main(){
     for(int i=1; i<10; i++)
         printf("%d*%d=%d", n, i, n*i);
 }
+
+//codeup 1266 n개의 수의 합
+#include <stdio.h>
+int main(){
+    int a, n, sum=0;
+    scanf("%d", &n);
+    for(int i=0; i<n; i++){
+        scanf("%d", &a);
+        sum += a;
+    }
+    printf("%d", sum);
+}
+
+//codeup 1267 n개의 수 중 5의 배수의 합
+#include <stdio.h>
+int main(){
+    int a, n, sum=0;
+    scanf("%d", &n);
+    for(int i=0; i<n; i++){
+        scanf("%d", &a);
+        if(a%5==0) sum += a;
+    }
+    printf("%d", sum);
+}
+
+//codeup 1267 n개의 수 중 홀수의 갯수
+#include <stdio.h>
+int main(){
+    int a, n, count=0;
+    scanf("%d", &n);
+    for(int i=0; i<n; i++){
+        scanf("%d", &a);
+        if(a%2==1) count += 1;
+    }
+    printf("%d", count);
+}
+
+//codeup 1269 수열의 값
+#include <stdio.h>
+int main(){
+    int a, b, c, n, result;
+    scanf("%d %d %d %d", &a, &b, &c, &n);
+    result = a;
+    for(int i=1; i<=n; i++)
+        result = result*b+c;
+    printf("%d", result);
+}
+
+//codeup 1270 1의 개수
+#include <stdio.h>
+int main(){
+    int n, sum=0;
+    scanf("%d", &n);
+    for(int i=1; i<=n; i++)
+        if(i%10==1) sum += 1;
+    printf("%d", sum);
+}
+
+//codeup 1271 최댓값
+#include <stdio.h>
+int main(){
+    int a, n, max=0;
+    scanf("%d", &n);
+    for(int i=0; i<n; i++){
+        scanf("%d", &a);
+        if(max<a) max = a;
+    }
+    printf("%d", max);
+}
+
+//codeup 1271 기부
+#include <stdio.h>
+int main(){
+    int k, h;
+    scanf("%d %d", &k, &h);
+    if(k%2==0) k *= 5;
+    else k = (k+1)/2;
+    if(h%2==0) h *= 5;
+    else h = (h+1)/2;
+    printf("%d", k+h);
+}
+
+//codeup 1273 약수
+#include <stdio.h>
+int main(){
+    int n;
+    scanf("%d", &n);
+    for(int i=1; i<=n; i++)
+        if(n%i==0) printf("%d ", i);
+}
+
+//codeup 1274 소수
+#include <stdio.h>
+int main(){
+    int n;
+    scanf("%d", &n);
+    for(int i=2; i<=n; i++){
+        if(i==n){
+            printf("prime");
+            break;
+        }
+        if(n%i==0){
+            printf("not prime");
+            break;
+        }
+    }
+}
+
+//codeup 1275 제곱
+#include <stdio.h>
+int main(){
+    int n;
+    scanf("%d", &n);
+    for(int i=1; i<=n; i++)
+        if(n%i==0) printf("%d ", i);
+}
+
+//codeup 1274 제곱
+#include <stdio.h>
+int main(){
+    int k, n, a=1;
+    scanf("%d %d", &k, &n);
+    for(int i=0; i<n; i++)
+        a *=k;
+    printf("%d", a);
+    return 0;
+}
+
+//codeup 1276 팩토리얼
+#include <stdio.h>
+int main(){
+    int n, mul=1;
+    scanf("%d", &n);
+    for(int i=0; i<n; i++)
+        mul *= (n-i);
+    printf("%d", mul);
+    return 0;
+}
+
+//codeup 1277 몇 번째 데이터 출력
+#include <stdio.h>
+int main(){
+    int n, k;
+    scanf("%d", &n);
+    for(int i=0; i<n; i++){
+        scanf("%d", &k);
+        if(i==0) printf("%d ", k);
+        if(i==n/2) printf("%d ", k);
+        if(i==(n-1)) printf("%d ", k);
+    }
+}
