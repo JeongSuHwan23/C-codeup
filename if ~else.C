@@ -272,7 +272,7 @@ int main(){
     else printf("정상");
 }
 
-//code up 1230 터널 통과
+//codeup 1230 터널 통과
 #include <stdio.h>
 int main(){
     int a, b, c;
@@ -282,3 +282,4 @@ int main(){
     else if(c<=170) printf("CRASH %d", c);
     else printf("PASS");
 }
+
