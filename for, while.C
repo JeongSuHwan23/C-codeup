@@ -60,9 +60,9 @@ int main(){
 int main(){
     int a, b, sum=0;
     scanf("%d %d", &a, &b);
-    for(int i=a; i<=b; i++)
-        if(i%3==0)
-            sum += i;
+    for(int i=a; i<=b; i++) //a부터 b까지 실행되는 for문
+        if(i%3==0) 
+            sum += i; //3의 배수만 더한다
     printf("%d", sum);
 }
 
@@ -71,8 +71,8 @@ int main(){
 int main(){
     int n;
     scanf("%d", &n);
-    for(int i=1; i<10; i++)
-        printf("%d*%d=%d", n, i, n*i);
+    for(int i=1; i<10; i++) 
+        printf("%d*%d=%d", n, i, n*i); 
 }
 
 //codeup 1266 n개의 수의 합
@@ -80,9 +80,9 @@ int main(){
 int main(){
     int a, n, sum=0;
     scanf("%d", &n);
-    for(int i=0; i<n; i++){
+    for(int i=0; i<n; i++){ //n번 입력을 받는 for문
         scanf("%d", &a);
-        sum += a;
+        sum += a; 
     }
     printf("%d", sum);
 }
@@ -99,14 +99,14 @@ int main(){
     printf("%d", sum);
 }
 
-//codeup 1267 n개의 수 중 홀수의 갯수
+//codeup 1268 n개의 수 중 홀수의 갯수
 #include <stdio.h>
 int main(){
     int a, n, count=0;
     scanf("%d", &n);
     for(int i=0; i<n; i++){
         scanf("%d", &a);
-        if(a%2==1) count += 1;
+        if(a%2==1) count += 1; //a가 홀수면 카운트한다
     }
     printf("%d", count);
 }
@@ -114,10 +114,10 @@ int main(){
 //codeup 1269 수열의 값
 #include <stdio.h>
 int main(){
-    int a, b, c, n, result;
+    int a, b, c, n, result; //시작 값(a), 곱할 값(b), 더할 값(c), 몇 번째 항인지 나타내는 정수(n)
     scanf("%d %d %d %d", &a, &b, &c, &n);
-    result = a;
-    for(int i=1; i<=n; i++)
+    result = a; //수열의 1항은 a다
+    for(int i=2; i<=n; i++) //2항부터 n항까지 계산
         result = result*b+c;
     printf("%d", result);
 }
@@ -125,11 +125,11 @@ int main(){
 //codeup 1270 1의 개수
 #include <stdio.h>
 int main(){
-    int n, sum=0;
+    int n, count=0;
     scanf("%d", &n);
     for(int i=1; i<=n; i++)
-        if(i%10==1) sum += 1;
-    printf("%d", sum);
+        if(i%10==1) count += 1; //뒷자리가 1이면 카운트한다
+    printf("%d", count);
 }
 
 //codeup 1271 최댓값
@@ -139,7 +139,7 @@ int main(){
     scanf("%d", &n);
     for(int i=0; i<n; i++){
         scanf("%d", &a);
-        if(max<a) max = a;
+        if(max<a) max = a; //입력된 수가 max보다 크면 max에 대입
     }
     printf("%d", max);
 }
@@ -162,7 +162,7 @@ int main(){
     int n;
     scanf("%d", &n);
     for(int i=1; i<=n; i++)
-        if(n%i==0) printf("%d ", i);
+        if(n%i==0) printf("%d ", i); //n의 약수면 i을 출력
 }
 
 //codeup 1274 소수
@@ -170,14 +170,14 @@ int main(){
 int main(){
     int n;
     scanf("%d", &n);
-    for(int i=2; i<=n; i++){
-        if(i==n){
+    for(int i=2; i<=n; i++){ //1은 모두의 약수이므로 i는 2부터 시작한다
+        if(i==n){ //만약 i가 n과 같으면 n의 약수는 1과 n뿐이므로 소수
             printf("prime");
-            break;
+            break; //break를 안 하면 다음 if문도 실행되므로 "not prime"도 출력된다
         }
-        if(n%i==0){
+        if(n%i==0){ //n이 i로 나눴을 때 나머지가 0이면 소수가 아님 (이 때 i!=1 && i!=n)
             printf("not prime");
-            break;
+            break; //break를 하지않으면 마지막에 "prime"이 출력된다
         }
     }
 }
@@ -185,18 +185,9 @@ int main(){
 //codeup 1275 제곱
 #include <stdio.h>
 int main(){
-    int n;
-    scanf("%d", &n);
-    for(int i=1; i<=n; i++)
-        if(n%i==0) printf("%d ", i);
-}
-
-//codeup 1274 제곱
-#include <stdio.h>
-int main(){
-    int k, n, a=1;
+    int k, n, a=1; //0제곱은 1이므로 a에 1을 대입한다 
     scanf("%d %d", &k, &n);
-    for(int i=0; i<n; i++)
+    for(int i=0; i<n; i++) //0제곱일 땐 실행되지 않는다
         a *=k;
     printf("%d", a);
     return 0;
@@ -207,8 +198,8 @@ int main(){
 int main(){
     int n, mul=1;
     scanf("%d", &n);
-    for(int i=0; i<n; i++)
-        mul *= (n-i);
+    for(int i=0; i<n; i++) 
+        mul *= (n-i); 
     printf("%d", mul);
     return 0;
 }
@@ -217,11 +208,12 @@ int main(){
 #include <stdio.h>
 int main(){
     int n, k;
-    scanf("%d", &n);
+    scanf("%d", &n); //n>=1인 홀수
     for(int i=0; i<n; i++){
         scanf("%d", &k);
-        if(i==0) printf("%d ", k);
-        if(i==n/2) printf("%d ", k);
-        if(i==(n-1)) printf("%d ", k);
+        if(i==0) printf("%d ", k); //처음 입력받은 데이터를 출력
+        if(i==n/2) printf("%d ", k); //중간 데이터 값을 출력
+        if(i==(n-1)) printf("%d ", k); //마지막 데이터 값을 출력
     }
 }
+
