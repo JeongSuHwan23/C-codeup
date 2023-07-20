@@ -217,3 +217,83 @@ int main(){
     }
 }
 
+//2023-07-20
+//codeup 1279 홀수는 더하고 짝수는 빼고 1
+#include <stdio.h>
+int main(){
+    int a, b, sum=0;
+    scanf("%d %d", &a, &b);
+    for(int i=a; i<=b; i++){
+        if(i%2==1) sum += i;
+        else sum -= i;
+    }
+    printf("%d", sum);
+}
+
+//codeup 1280 홀수는 더하고 짝수는 빼고 2
+#include <stdio.h>
+int main(){
+    int a, b, sum=0;
+    scanf("%d %d", &a, &b);
+    for(int i=a; i<=b; i++){
+        if(i%2==1){ 
+            sum += i;
+            printf("+%d", i);
+        }
+        else{
+            sum -= i;
+            printf("-%d", i);
+        }
+    }
+    printf("=%d", sum);
+}
+
+//codeup 1281 홀수는 더하고 짝수는 빼고 3
+#include <stdio.h>
+int main(){
+    int a, b, sum=0;
+    scanf("%d %d", &a, &b);
+    for(int i=a; i<=b; i++){
+        if(i%2==1){ 
+            if(i==a) printf("%d", i);
+            else printf("+%d", i);
+            sum += i;
+        }
+        else{
+            printf("-%d", i);
+            sum -= i;
+        }
+    }
+    printf("=%d", sum);
+}
+
+//codeup 1282 제곱수
+#include <stdio.h>
+#include <math.h>
+int main(){
+    int n, t=0;
+    scanf("%d", &n);
+    t = sqrt(n); // sqrt(n) = n의 제곱근 (n은 int형이라 제곱근도 int로 나온다)
+    for(int i=1; i<=n; i++){
+        if((n-i)==t*t){
+            printf("%d %d", i, t);
+            return 0;
+        }
+    }
+}
+
+//codeup 주식투자
+#include <stdio.h>
+int main(){
+    float tc, day, flu, ti=0, ni=0;
+    ti = tc;
+    scanf("%f %f", &tc, &day);
+    for(int i=0; i<day; i++){
+        scanf("%f", &flu);
+        ti =  ti * ((100.0+flu))/100.0;
+    }
+    ni = ti-tc;
+    if(ni>0) printf("%f\ngood", ni);
+    else if(ni<0) printf("%f\nbad", ni);
+    else printf("%f\nsame", ni);
+}
