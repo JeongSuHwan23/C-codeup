@@ -282,18 +282,20 @@ int main(){
     }
 }
 
-//codeup 주식투자
+//codeup 1283 주식투자
 #include <stdio.h>
 int main(){
-    float tc, day, flu, ti=0, ni=0;
-    ti = tc;
-    scanf("%f %f", &tc, &day);
+    double rate, lm=0;
+    int day, fm;
+    scanf("%d %d", &fm, &day);
+    lm = fm;
     for(int i=0; i<day; i++){
-        scanf("%f", &flu);
-        ti =  ti * ((100.0+flu))/100.0;
+        scanf("%lf", &rate);
+        lm = lm +lm*(rate/100);
     }
-    ni = ti-tc;
-    if(ni>0) printf("%f\ngood", ni);
-    else if(ni<0) printf("%f\nbad", ni);
-    else printf("%f\nsame", ni);
+    printf("%.0f\n", lm-fm);
+    if(lm>fm) printf("good");
+    else if(lm<fm) printf("bad");
+    else printf("same"); 
 }
+
