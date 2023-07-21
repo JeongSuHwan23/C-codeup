@@ -285,17 +285,79 @@ int main(){
 //codeup 1283 주식투자
 #include <stdio.h>
 int main(){
-    double rate, lm=0;
-    int day, fm;
+    double rate, lm=0; //rate = 변동폭(퍼센트 단위), lm = 총 수익 
+    int day, fm; // day = 투자 일 수, fm = 투자한 액수
     scanf("%d %d", &fm, &day);
     lm = fm;
     for(int i=0; i<day; i++){
         scanf("%lf", &rate);
-        lm = lm +lm*(rate/100);
+        lm = lm +lm*(rate/100); //변동폭에 대한 수익 변화
     }
-    printf("%.0f\n", lm-fm);
-    if(lm>fm) printf("good");
+    printf("%.0f\n", lm-fm); //순수익(총 수익(lm) - 투자한 비용(fm))
+    if(lm>fm) printf("good"); 
     else if(lm<fm) printf("bad");
     else printf("same"); 
 }
 
+//2023-07-21
+//codeup 1285 계산기 2
+#include <stdio.h>
+int main(){
+    int n, result;
+    char x;
+    scanf("%d", &result);
+    for(int i=1; ; i++){
+        scanf("%c", &x);
+        if(x=='='){
+            printf("%d", result);
+            return 0;
+        }
+        else{
+            scanf("%d", &n);
+            if(x=='+') result += n;
+            else if(x=='-') result -= n;
+            else if(x=='*') result *= n;
+            else if(x=='/') result /= n; 
+        }
+    }
+}
+
+//codeup 1286 최댓값, 최솟값
+#include <stdio.h>
+int main(){
+    int n, max=-1000001, min=1000001;
+    for(int i=0; i<5; i++){
+        scanf("%d", &n);
+        if(n>max) max = n;
+        if(n<min) min = n;
+    }
+    printf("%d %d", max, min);
+}
+
+//codeup 1287 구구단을 *로 출력
+#include <stdio.h>
+int main(){
+    int n;
+    scanf("%d", &n);
+    for(int i=1; i<10; i++){
+        for(int j=1; j<=n*i; j++){
+            printf("*");
+        }
+        printf("\n");
+    }
+}
+
+//codeup 1295 알파벳 대소문자 변환
+#include <stdio.h>
+int main(){
+    char txt[1000]="";
+    char trans_txt[1000]="";
+    scanf("%s", txt);
+    for(int i=0; txt[i]!='\0'; i++){
+        if(txt[i] >= 65 && txt[i] <= 90) trans_txt[i] = txt[i]+32;
+        else if(txt[i] >= 97 && txt[i] <=122) trans_txt[i] = txt[i]-32;
+        else trans_txt[i] = txt[i];
+    }
+    printf("%s", trans_txt);
+    return 0;
+}
